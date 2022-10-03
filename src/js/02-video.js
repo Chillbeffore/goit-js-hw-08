@@ -1,5 +1,5 @@
-import Player from '@vimeo/player';
 import * as _ from 'lodash';
+import Player from '@vimeo/player';
 
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
