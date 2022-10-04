@@ -30,7 +30,7 @@ function onFormSubmit(evt) {
   } else {
     formData.email = evt.target.elements.email.value;
     formData.message = evt.target.elements.message.value;
-
+    console.log(formData);
     evt.currentTarget.reset();
     localStorage.removeItem(FEEDBACK_KEY);
   }
@@ -38,10 +38,12 @@ function onFormSubmit(evt) {
 
 function populateForm() {
   try {
-    const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const savedData = JSON.parse(localStorage.getItem(FEEDBACK_KEY));
     refs.textarea.value = savedData.message;
     refs.email.value = savedData.email;
   } catch {
+    console.dir('Data has been deleted');
+
     refs.textarea.value = '';
     refs.email.value = '';
   }
